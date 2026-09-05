@@ -221,12 +221,12 @@ theorem exercise27 (P Q : Prop) : P ∧ Q → P ∨ Q := by
   left
   exact hPQ.left
 
---@[autogradedDef 2]
+@[autogradedDef 2]
 def exercise28 (A : Type) : A ⊕ A → A := by
   intro s
-  rcases s with a | a
-  · exact a
-  · exact a
+  rcases s with a1 | a2
+  · exact a1
+  · exact a2
 
 -- Swapping alternatives. Exercises 29 and 30 state the same function. Use
 -- `Sum.elim` in the term proof; make the tactic proof split cases with
@@ -373,7 +373,7 @@ def exercise45 (A : Type) : A ⊕ Empty → A := by
   intro hAEmpty
   rcases hAEmpty with a | e
   · exact a
-  · cases e
+  · exact e.elim
 
 -- Zero-branch elimination. Exercises 46 and 47 state the same function. Use
 -- `Empty.elim` in the term proof.
@@ -385,6 +385,6 @@ def exercise46 (A B : Type) (f : A → Empty) : A → B :=
 @[autogradedDef 1]
 def exercise47 (A B : Type) (f : A → Empty) : A → B := by
   intro a
-  cases f a
+  exact (f a).elim
 
 end Homework1
