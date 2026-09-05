@@ -1,5 +1,5 @@
 import Batteries
---import AutograderLib
+import AutograderLib
 
 /-!
 # Homework 1
