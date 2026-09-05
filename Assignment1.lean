@@ -224,9 +224,9 @@ theorem exercise27 (P Q : Prop) : P ∧ Q → P ∨ Q := by
 @[autogradedDef 2]
 def exercise28 (A : Type) : A ⊕ A → A := by
   intro s
-  rcases s with a1 | a2
-  · exact a1
-  · exact a2
+  cases s with
+  | inl a1 => exact a1
+  | inr a2 => exact a2
 
 -- Swapping alternatives. Exercises 29 and 30 state the same function. Use
 -- `Sum.elim` in the term proof; make the tactic proof split cases with
